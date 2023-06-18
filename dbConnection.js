@@ -20,7 +20,6 @@ const connectToDatabase = async (server) => {
     io.on('connection', (socket) => {
         console.log('a user connected');
         socket.on('send message', async(data) => {
-            console.log('message: ' );
             console.log(data);
             const channel = await Channel.findOne({ _id: data.channelId });
             if (!channel) {
